@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { CoverImage } from "@/components/ui/CoverImage";
 import type { ProductCard } from "@/types/shopify";
 import { formatPrice } from "@/types/shopify";
 
@@ -20,21 +20,20 @@ export function ProductGrid({ products }: ProductGridProps) {
           </h2>
         </div>
 
-        <ul className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid w-full gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
-            <li key={product.id}>
-              <Link href={`/products/${product.handle}`} className="group block">
-                <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-neutral-100">
+            <li key={product.id} className="w-full">
+              <Link href={`/products/${product.handle}`} className="group block w-full">
+                <div className="image-cover-container relative mb-4 aspect-[3/4] w-full bg-neutral-100">
                   {product.featuredImage ? (
-                    <Image
+                    <CoverImage
                       src={product.featuredImage.url}
                       alt={product.featuredImage.altText ?? product.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   ) : (
-                    <div className="flex h-full items-center justify-center text-neutral-400">
+                    <div className="absolute inset-0 flex items-center justify-center text-neutral-400">
                       No image
                     </div>
                   )}

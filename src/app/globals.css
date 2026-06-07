@@ -23,3 +23,22 @@ body {
 .font-sans {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
+
+.image-cover-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-cover-container > img,
+.image-cover-container > span {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.image-cover-container img {
+  object-fit: cover !important;
+  object-position: center !important;
+}

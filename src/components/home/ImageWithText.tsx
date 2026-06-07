@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { Button } from "@/components/ui/Button";
 
 type ImageWithTextProps = {
@@ -27,12 +27,10 @@ export function ImageWithText({
   dark = false,
 }: ImageWithTextProps) {
   const imageBlock = (
-    <div className="relative aspect-[4/5] min-h-[400px] md:aspect-auto md:min-h-[560px]">
-      <Image
+    <div className="image-cover-container relative aspect-[4/5] w-full min-h-[360px] sm:min-h-[420px] md:aspect-auto md:min-h-[560px] md:h-full">
+      <CoverImage
         src={imageUrl}
         alt={imageAlt}
-        fill
-        className="object-cover"
         sizes="(max-width: 768px) 100vw, 50vw"
       />
     </div>
@@ -40,7 +38,7 @@ export function ImageWithText({
 
   const textBlock = (
     <div
-      className={`flex flex-col justify-center px-8 py-16 md:px-16 lg:px-20 ${
+      className={`flex min-h-[360px] flex-col justify-center px-8 py-16 md:min-h-[560px] md:px-16 lg:px-20 ${
         dark ? "bg-black text-white" : "bg-neutral-100 text-neutral-900"
       }`}
     >
@@ -66,7 +64,11 @@ export function ImageWithText({
             <Button
               href={secondaryButton.href}
               variant={dark ? "outline" : "secondary"}
-              className={dark ? "" : "bg-transparent border border-black text-black hover:bg-black hover:text-white"}
+              className={
+                dark
+                  ? ""
+                  : "border border-black bg-transparent text-black hover:bg-black hover:text-white"
+              }
             >
               {secondaryButton.label}
             </Button>
@@ -77,7 +79,7 @@ export function ImageWithText({
   );
 
   return (
-    <section id={id} className="grid md:grid-cols-2">
+    <section id={id} className="grid w-full md:grid-cols-2 md:items-stretch">
       {imagePosition === "left" ? (
         <>
           {imageBlock}

@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { getProductByHandle } from "@/lib/shopify/queries/products";
 import { formatPrice } from "@/types/shopify";
 
@@ -37,14 +37,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       <main className="mx-auto max-w-7xl px-6 py-12 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="relative aspect-[3/4] bg-neutral-100">
+          <div className="image-cover-container relative aspect-[3/4] w-full bg-neutral-100">
             {images[0] && (
-              <Image
+              <CoverImage
                 src={images[0].url}
                 alt={images[0].altText ?? product.title}
-                fill
                 priority
-                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             )}
