@@ -6,6 +6,7 @@ type CoverImageProps = {
   priority?: boolean;
   sizes?: string;
   className?: string;
+  objectPosition?: string;
 };
 
 export function CoverImage({
@@ -14,6 +15,7 @@ export function CoverImage({
   priority = false,
   sizes = "100vw",
   className = "",
+  objectPosition = "center center",
 }: CoverImageProps) {
   return (
     <Image
@@ -22,8 +24,8 @@ export function CoverImage({
       fill
       priority={priority}
       sizes={sizes}
-      className={`h-full w-full object-cover object-center ${className}`}
-      style={{ objectFit: "cover", objectPosition: "center" }}
+      className={`h-full w-full object-cover ${className}`}
+      style={{ objectFit: "cover", objectPosition }}
     />
   );
 }

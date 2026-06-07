@@ -12,6 +12,7 @@ type ImageWithTextProps = {
   primaryButton?: { label: string; href: string };
   secondaryButton?: { label: string; href: string };
   dark?: boolean;
+  imageObjectPosition?: string;
 };
 
 export function ImageWithText({
@@ -25,20 +26,22 @@ export function ImageWithText({
   primaryButton,
   secondaryButton,
   dark = false,
+  imageObjectPosition = "center top",
 }: ImageWithTextProps) {
   const imageBlock = (
-    <div className="image-cover-container relative aspect-[4/5] w-full min-h-[360px] sm:min-h-[420px] md:aspect-auto md:min-h-[560px] md:h-full">
+    <div className="image-cover-container relative aspect-[4/5] w-full sm:aspect-[5/6] md:aspect-auto md:min-h-[560px] md:h-full">
       <CoverImage
         src={imageUrl}
         alt={imageAlt}
         sizes="(max-width: 768px) 100vw, 50vw"
+        objectPosition={imageObjectPosition}
       />
     </div>
   );
 
   const textBlock = (
     <div
-      className={`flex min-h-[360px] flex-col justify-center px-8 py-16 md:min-h-[560px] md:px-16 lg:px-20 ${
+      className={`flex min-h-[360px] flex-col justify-center px-8 py-16 sm:min-h-[420px] md:min-h-[560px] md:px-16 lg:px-20 ${
         dark ? "bg-black text-white" : "bg-neutral-100 text-neutral-900"
       }`}
     >

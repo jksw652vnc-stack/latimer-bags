@@ -30,7 +30,8 @@ export function ProductGrid({ products }: ProductGridProps) {
                       src={product.featuredImage.url}
                       alt={product.featuredImage.altText ?? product.title}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="transition-transform duration-500 group-hover:scale-[1.03]"
+                      objectPosition="center top"
+                      className="transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-neutral-400">

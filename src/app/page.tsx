@@ -79,6 +79,7 @@ export default async function HomePage() {
               label: "Follow Us @latimerbags",
               href: "https://instagram.com/latimerbags",
             }}
+            imageObjectPosition="center 40%"
           />
         )}
 

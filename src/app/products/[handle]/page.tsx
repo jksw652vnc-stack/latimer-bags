@@ -44,6 +44,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 alt={images[0].altText ?? product.title}
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                objectPosition="center top"
               />
             )}
           </div>

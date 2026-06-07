@@ -8,12 +8,13 @@ type HeroSectionProps = {
 
 export function HeroSection({ imageUrl, imageAlt }: HeroSectionProps) {
   return (
-    <section className="image-cover-container relative h-[70vh] min-h-[480px] max-h-[800px] w-full">
+    <section className="image-cover-container relative aspect-[4/5] w-full sm:aspect-[5/6] md:aspect-[3/4] lg:aspect-[4/3] xl:aspect-auto xl:min-h-[90svh]">
       <CoverImage
         src={imageUrl}
         alt={imageAlt}
         priority
         sizes="100vw"
+        objectPosition="center 28%"
       />
       <div className="absolute inset-0 z-10 bg-black/20" />
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-white">

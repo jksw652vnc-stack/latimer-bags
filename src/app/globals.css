@@ -40,5 +40,4 @@ body {
 
 .image-cover-container img {
   object-fit: cover !important;
-  object-position: center !important;
 }
