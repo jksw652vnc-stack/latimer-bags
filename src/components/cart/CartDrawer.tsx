@@ -52,12 +52,12 @@ export function CartDrawer() {
                 return (
                   <li
                     key={line.id}
-                    className="flex gap-4 border-b border-neutral-100 pb-6 last:border-b-0"
+                    className="flex items-start gap-4 border-b border-neutral-100 pb-6 last:border-b-0"
                   >
                     <Link
                       href={`/products/${line.merchandise.product.handle}`}
                       onClick={closeCart}
-                      className="image-cover-container relative block h-28 w-24 shrink-0 bg-neutral-100"
+                      className="relative block h-[120px] w-[90px] shrink-0 overflow-hidden bg-neutral-100"
                     >
                       {image && (
                         <Image
@@ -65,7 +65,7 @@ export function CartDrawer() {
                           alt={image.altText ?? line.merchandise.product.title}
                           fill
                           className="object-cover object-top"
-                          sizes="96px"
+                          sizes="90px"
                         />
                       )}
                     </Link>
