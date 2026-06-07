@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { CartProvider } from "@/components/cart/CartProvider";
 import "./globals.css";
 
 const serif = Cormorant_Garamond({
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body className="bg-white font-sans text-neutral-900 antialiased">
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

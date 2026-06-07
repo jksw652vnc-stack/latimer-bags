@@ -6,17 +6,33 @@ Custom headless storefront for [Latimer Bags](https://fyfcz8-t6.myshopify.com), 
 
 ```
 src/
-├── app/                    # Next.js App Router pages
-├── components/             # UI components (header, product cards, etc.)
+├── app/
+│   ├── actions/cart.ts     # Server actions: add, update, remove, fetch cart
+│   └── products/[handle]/  # Product pages with Add to Cart
+├── components/
+│   ├── cart/               # CartProvider, CartDrawer, AddToCartForm
+│   └── layout/             # Header with cart icon + item count
 ├── lib/
+│   ├── cart/cookies.ts     # Persists cart ID in httpOnly cookie
 │   └── shopify/
-│       ├── client.ts       # Storefront API client + request helper
-│       ├── config.ts       # Env-based Shopify configuration
-│       ├── fragments/      # Reusable GraphQL fragments
-│       └── queries/        # Product & collection queries
-└── types/
-    └── shopify.ts          # Shared Shopify types & helpers
+│       ├── mutations/cart.ts
+│       └── queries/cart.ts
+└── types/shopify.ts
 ```
+
+## Cart & checkout
+
+The storefront uses Shopify's **Storefront Cart API**:
+
+1. **Add to Cart** on product pages creates or updates a Shopify cart
+2. Cart ID is stored in a cookie (`shopify_cart_id`) for 30 days
+3. **Cart drawer** opens from the bag icon — update quantities, remove items
+4. **Checkout** redirects to Shopify's hosted checkout via `cart.checkoutUrl`
+
+Your Headless channel token needs these permissions enabled:
+
+- `unauthenticated_write_checkouts`
+- `unauthenticated_read_checkouts`
 
 ## Setup
 
@@ -53,7 +69,7 @@ Edit `.env.local`:
 ```env
 SHOPIFY_STORE_DOMAIN=fyfcz8-t6.myshopify.com
 SHOPIFY_STOREFRONT_ACCESS_TOKEN=your_token_here
-SHOPIFY_API_VERSION=2025-01
+SHOPIFY_API_VERSION=2026-01
 ```
 
 ### 3. Install and run

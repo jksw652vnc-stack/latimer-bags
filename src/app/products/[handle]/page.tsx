@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { AddToCartForm } from "@/components/cart/AddToCartForm";
 import { CoverImage } from "@/components/ui/CoverImage";
 import { getProductByHandle } from "@/lib/shopify/queries/products";
 import { formatPrice } from "@/types/shopify";
@@ -63,12 +64,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               className="mb-8 text-sm leading-relaxed text-neutral-600"
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
-            <button
-              type="button"
-              className="w-full max-w-sm bg-black py-4 text-[11px] tracking-[0.2em] text-white uppercase transition-opacity hover:opacity-80"
-            >
-              Add to Cart
-            </button>
+            <AddToCartForm variants={product.variants.nodes} />
             <Link
               href="/#collection"
               className="mt-6 text-sm text-neutral-500 underline-offset-4 hover:underline"

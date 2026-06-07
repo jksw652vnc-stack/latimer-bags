@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useCart } from "@/components/cart/CartProvider";
 
 function IconUser() {
   return (
@@ -29,11 +32,14 @@ function IconBag() {
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "#collection", label: "Shop" },
-  { href: "#story", label: "About" },
+  { href: "/#collection", label: "Shop" },
+  { href: "/#story", label: "About" },
 ];
 
 export function Header() {
+  const { cart, openCart } = useCart();
+  const itemCount = cart?.totalQuantity ?? 0;
+
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-[72px]">
@@ -63,8 +69,18 @@ export function Header() {
           <button type="button" aria-label="Search" className="transition-opacity hover:opacity-60">
             <IconSearch />
           </button>
-          <button type="button" aria-label="Cart" className="transition-opacity hover:opacity-60">
+          <button
+            type="button"
+            aria-label="Open cart"
+            onClick={openCart}
+            className="relative transition-opacity hover:opacity-60"
+          >
             <IconBag />
+            {itemCount > 0 && (
+              <span className="absolute -top-2 -right-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-black px-1 text-[10px] text-white">
+                {itemCount}
+              </span>
+            )}
           </button>
         </div>
       </div>

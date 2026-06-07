@@ -50,6 +50,36 @@ export type CollectionWithProducts = {
   };
 };
 
+export type CartLineMerchandise = {
+  id: string;
+  title: string;
+  price: Money;
+  product: {
+    title: string;
+    handle: string;
+    featuredImage: Pick<ShopifyImage, "url" | "altText"> | null;
+  };
+};
+
+export type CartLine = {
+  id: string;
+  quantity: number;
+  merchandise: CartLineMerchandise;
+};
+
+export type Cart = {
+  id: string;
+  checkoutUrl: string;
+  totalQuantity: number;
+  cost: {
+    subtotalAmount: Money;
+    totalAmount: Money;
+  };
+  lines: {
+    nodes: CartLine[];
+  };
+};
+
 export function formatPrice(money: Money): string {
   return new Intl.NumberFormat("en-GB", {
     style: "currency",
