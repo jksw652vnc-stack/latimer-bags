@@ -30,8 +30,13 @@ export function Footer() {
           <h3 className="mb-4 text-[11px] tracking-[0.2em] uppercase">Footer menu</h3>
           <ul className="space-y-2 text-sm text-neutral-600">
             <li>
-              <Link href="#" className="transition-opacity hover:opacity-60">
-                Search
+              <Link href="/about" className="transition-opacity hover:opacity-60">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/#collection" className="transition-opacity hover:opacity-60">
+                Shop
               </Link>
             </li>
           </ul>

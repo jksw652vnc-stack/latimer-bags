@@ -33,7 +33,7 @@ function IconBag() {
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/#collection", label: "Shop" },
-  { href: "/#story", label: "About" },
+  { href: "/about", label: "About" },
 ];
 
 export function Header() {
