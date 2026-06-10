@@ -2,7 +2,6 @@ const messages = [
   "Free shipping & returns on all orders",
   "100% genuine cowhide leather",
   "Handcrafted in small batches",
-  "Site updated June 2026",
 ];
 
 export function AnnouncementBar() {
