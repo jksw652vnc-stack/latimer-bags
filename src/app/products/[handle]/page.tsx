@@ -4,7 +4,7 @@ import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AddToCartForm } from "@/components/cart/AddToCartForm";
-import { CoverImage } from "@/components/ui/CoverImage";
+import { ProductImageGallery } from "@/components/product/ProductImageGallery";
 import { getProductByHandle } from "@/lib/shopify/queries/products";
 import { formatPrice } from "@/types/shopify";
 
@@ -38,17 +38,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       <main className="mx-auto max-w-7xl px-6 py-12 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="image-cover-container relative aspect-[3/4] w-full bg-neutral-100">
-            {images[0] && (
-              <CoverImage
-                src={images[0].url}
-                alt={images[0].altText ?? product.title}
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                objectPosition="center top"
-              />
-            )}
-          </div>
+          <ProductImageGallery images={images} productTitle={product.title} />
 
           <div className="flex flex-col justify-center">
             <p className="mb-4 text-[11px] tracking-[0.25em] text-neutral-500 uppercase">
