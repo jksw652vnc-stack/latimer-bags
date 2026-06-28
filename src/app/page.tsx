@@ -11,6 +11,8 @@ import { getCollectionByHandle } from "@/lib/shopify/queries/collections";
 import { getProducts } from "@/lib/shopify/queries/products";
 import type { ProductCard } from "@/types/shopify";
 
+export const revalidate = 60;
+
 function findProduct(products: ProductCard[], handle: string) {
   return products.find((p) => p.handle === handle);
 }
