@@ -1,21 +1,18 @@
-import { FullWidthImage } from "@/components/ui/FullWidthImage";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { Button } from "@/components/ui/Button";
 
 const HERO_IMAGE = "/images/hero.jpg";
 const HERO_IMAGE_ALT = "Latimer luxury leather bag";
-const HERO_IMAGE_WIDTH = 3287;
-const HERO_IMAGE_HEIGHT = 3803;
 
 export function HeroSection() {
   return (
-    <section className="relative w-full">
-      <FullWidthImage
+    <section className="image-cover-container relative w-full aspect-[4/5] sm:aspect-[5/6] md:aspect-auto md:h-[min(75svh,900px)] md:min-h-[480px]">
+      <CoverImage
         src={HERO_IMAGE}
         alt={HERO_IMAGE_ALT}
-        width={HERO_IMAGE_WIDTH}
-        height={HERO_IMAGE_HEIGHT}
         priority
         sizes="100vw"
+        objectPosition="center 60%"
       />
       <div className="absolute inset-0 bg-black/20" />
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
