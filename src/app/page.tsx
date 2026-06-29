@@ -41,7 +41,7 @@ export default async function HomePage() {
       <AnnouncementBar />
       <Header />
 
-      <main>
+      <main className="w-full overflow-x-hidden">
         <HeroSection />
 
         {storyImage && (

@@ -6,7 +6,7 @@ const HERO_IMAGE_ALT = "Latimer luxury leather bag";
 
 export function HeroSection() {
   return (
-    <section className="image-cover-container relative aspect-[4/5] w-full sm:aspect-[5/6] md:aspect-[3/4] lg:aspect-[4/3] xl:aspect-auto xl:min-h-[90svh]">
+    <section className="image-cover-container relative w-full aspect-[4/5] sm:aspect-[5/6] md:aspect-auto md:h-[min(75svh,900px)] md:min-h-[480px]">
       <CoverImage
         src={HERO_IMAGE}
         alt={HERO_IMAGE_ALT}
