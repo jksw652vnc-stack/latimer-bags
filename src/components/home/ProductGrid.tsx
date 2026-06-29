@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FullWidthImage } from "@/components/ui/FullWidthImage";
+import { CoverImage } from "@/components/ui/CoverImage";
 import type { ProductCard } from "@/types/shopify";
 import { formatPrice } from "@/types/shopify";
 
@@ -24,17 +24,17 @@ export function ProductGrid({ products }: ProductGridProps) {
           {products.map((product) => (
             <li key={product.id} className="w-full">
               <Link href={`/products/${product.handle}`} className="group block w-full">
-                <div className="mb-4 w-full bg-neutral-100">
+                <div className="image-cover-container relative mb-4 aspect-[3/4] w-full bg-neutral-100">
                   {product.featuredImage ? (
-                    <FullWidthImage
+                    <CoverImage
                       src={product.featuredImage.url}
                       alt={product.featuredImage.altText ?? product.title}
-                      width={product.featuredImage.width}
-                      height={product.featuredImage.height}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      objectPosition="center top"
+                      className="transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   ) : (
-                    <div className="flex aspect-[3/4] items-center justify-center text-neutral-400">
+                    <div className="absolute inset-0 flex items-center justify-center text-neutral-400">
                       No image
                     </div>
                   )}
