@@ -42,7 +42,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-[72px]">
+      <div className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-6 lg:h-[72px]">
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
@@ -57,12 +57,12 @@ export function Header() {
 
         <Link
           href="/"
-          className="absolute left-1/2 -translate-x-1/2 font-serif text-xl tracking-[0.35em] uppercase lg:text-2xl"
+          className="justify-self-center font-serif text-xl tracking-[0.35em] uppercase lg:text-2xl"
         >
           Latimer
         </Link>
 
-        <div className="ml-auto flex items-center gap-5">
+        <div className="flex shrink-0 items-center justify-self-end gap-5">
           <button type="button" aria-label="Account" className="transition-opacity hover:opacity-60">
             <IconUser />
           </button>
@@ -73,7 +73,7 @@ export function Header() {
             type="button"
             aria-label="Open cart"
             onClick={openCart}
-            className="relative transition-opacity hover:opacity-60"
+            className="relative shrink-0 transition-opacity hover:opacity-60"
           >
             <IconBag />
             {itemCount > 0 && (

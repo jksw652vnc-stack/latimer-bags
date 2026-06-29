@@ -12,7 +12,7 @@ export function HeroSection() {
         alt={HERO_IMAGE_ALT}
         priority
         sizes="100vw"
-        objectPosition="center 60%"
+        objectPosition="center 40%"
       />
       <div className="absolute inset-0 bg-black/20" />
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
