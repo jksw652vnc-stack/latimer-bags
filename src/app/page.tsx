@@ -49,6 +49,8 @@ export default async function HomePage() {
             id="story"
             imageUrl={storyImage.url}
             imageAlt={storyImage.altText ?? "Our story"}
+            imageWidth={storyImage.width}
+            imageHeight={storyImage.height}
             imagePosition="left"
             subheading="Our Story"
             heading="Luxury leather, honestly priced"
@@ -61,6 +63,8 @@ export default async function HomePage() {
           <ImageWithText
             imageUrl={laylaImage.url}
             imageAlt={laylaImage.altText ?? "The Layla bag"}
+            imageWidth={laylaImage.width}
+            imageHeight={laylaImage.height}
             imagePosition="right"
             subheading="New In"
             heading="Meet The Layla"
@@ -73,7 +77,6 @@ export default async function HomePage() {
               label: "Follow Us @latimerbags",
               href: "https://instagram.com/latimerbags",
             }}
-            imageObjectPosition="center 40%"
           />
         )}
 

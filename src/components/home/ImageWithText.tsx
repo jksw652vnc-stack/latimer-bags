@@ -1,10 +1,12 @@
-import { CoverImage } from "@/components/ui/CoverImage";
+import { FullWidthImage } from "@/components/ui/FullWidthImage";
 import { Button } from "@/components/ui/Button";
 
 type ImageWithTextProps = {
   id?: string;
   imageUrl: string;
   imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
   imagePosition?: "left" | "right";
   subheading?: string;
   heading: string;
@@ -12,13 +14,14 @@ type ImageWithTextProps = {
   primaryButton?: { label: string; href: string };
   secondaryButton?: { label: string; href: string };
   dark?: boolean;
-  imageObjectPosition?: string;
 };
 
 export function ImageWithText({
   id,
   imageUrl,
   imageAlt,
+  imageWidth,
+  imageHeight,
   imagePosition = "left",
   subheading,
   heading,
@@ -26,22 +29,22 @@ export function ImageWithText({
   primaryButton,
   secondaryButton,
   dark = false,
-  imageObjectPosition = "center top",
 }: ImageWithTextProps) {
   const imageBlock = (
-    <div className="image-cover-container relative aspect-[4/5] w-full sm:aspect-[5/6] md:aspect-auto md:h-full md:min-h-[560px]">
-      <CoverImage
+    <div className="w-full">
+      <FullWidthImage
         src={imageUrl}
         alt={imageAlt}
+        width={imageWidth}
+        height={imageHeight}
         sizes="(max-width: 768px) 100vw, 50vw"
-        objectPosition={imageObjectPosition}
       />
     </div>
   );
 
   const textBlock = (
     <div
-      className={`flex min-h-[360px] flex-col justify-center px-8 py-16 sm:min-h-[420px] md:min-h-0 md:h-full md:px-16 lg:px-20 xl:px-24 ${
+      className={`flex flex-col justify-center px-8 py-16 md:px-16 lg:px-20 xl:px-24 ${
         dark ? "bg-black text-white" : "bg-neutral-100 text-neutral-900"
       }`}
     >
@@ -84,10 +87,7 @@ export function ImageWithText({
   );
 
   return (
-    <section
-      id={id}
-      className="grid w-full md:grid-cols-2 md:items-stretch md:min-h-[560px] md:max-h-[900px]"
-    >
+    <section id={id} className="grid w-full md:grid-cols-2 md:items-center">
       {imagePosition === "left" ? (
         <>
           {imageBlock}
