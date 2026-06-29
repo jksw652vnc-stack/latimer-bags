@@ -1,17 +1,15 @@
 import { CoverImage } from "@/components/ui/CoverImage";
 import { Button } from "@/components/ui/Button";
 
-type HeroSectionProps = {
-  imageUrl: string;
-  imageAlt: string;
-};
+const HERO_IMAGE = "/images/hero.jpg";
+const HERO_IMAGE_ALT = "Latimer luxury leather bag";
 
-export function HeroSection({ imageUrl, imageAlt }: HeroSectionProps) {
+export function HeroSection() {
   return (
     <section className="image-cover-container relative aspect-[4/5] w-full sm:aspect-[5/6] md:aspect-[3/4] lg:aspect-[4/3] xl:aspect-auto xl:min-h-[90svh]">
       <CoverImage
-        src={imageUrl}
-        alt={imageAlt}
+        src={HERO_IMAGE}
+        alt={HERO_IMAGE_ALT}
         priority
         sizes="100vw"
         objectPosition="center 28%"

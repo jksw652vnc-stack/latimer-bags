@@ -27,15 +27,12 @@ export default async function HomePage() {
     ? collection.products.nodes
     : allProducts;
 
-  const heroProduct =
-    findProduct(allProducts, "handmade-leather-shoulder-bag") ?? allProducts[0];
   const storyProduct =
     findProduct(allProducts, "handmade-red-leather-crossbody-bag") ??
     allProducts[2];
   const laylaProduct =
     findProduct(allProducts, "the-layla-bag-burgundy") ?? allProducts[4];
 
-  const heroImage = heroProduct?.featuredImage;
   const storyImage = storyProduct?.featuredImage;
   const laylaImage = laylaProduct?.featuredImage;
 
@@ -45,12 +42,7 @@ export default async function HomePage() {
       <Header />
 
       <main>
-        {heroImage && (
-          <HeroSection
-            imageUrl={heroImage.url}
-            imageAlt={heroImage.altText ?? "Latimer luxury leather bag"}
-          />
-        )}
+        <HeroSection />
 
         {storyImage && (
           <ImageWithText
